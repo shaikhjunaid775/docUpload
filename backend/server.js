@@ -12,6 +12,16 @@ const app = express()
 app.use(cors());
 app.use(express.json())
 
+app.use(
+  cors({
+    origin: [
+      "https://docuploadv1.netlify.app/",
+      // "https://yourfrontend.netlify.app",
+    ],
+    credentials: true,
+  })
+);
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("DB connected"))
