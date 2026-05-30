@@ -62,6 +62,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signin = async () => {
+    console.log("signin")
     const { email, password } = form;
 
     try {
