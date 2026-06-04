@@ -69,7 +69,8 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post(
         // "http://localhost:3000/api/auth/login",
         // "http://192.168.1.153:5000/api/auth/login",
-        "https://docupload-scad.onrender.com/api/auth/login",
+        // "https://docupload-scad.onrender.com/api/auth/login",
+        "https://docupload-production.up.railway.app/api/auth/login",
         {
           email,
           password,

@@ -14,7 +14,6 @@ app.use(
     origin: [
       // "http://localhost:5173", // Vite
       // "http://localhost:3000", //
-      // "http://localhost:5173",
       "http://192.168.1.153:5173",
       "https://docuploadv1.netlify.app",
     ],
