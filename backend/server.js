@@ -9,12 +9,12 @@ import uploadRoute from "./routes/uploadRoute.js";
 dotenv.config();
 
 const app = express();
-
 app.use(
   cors({
     origin: [
+      "http://localhost:5173", // Vite
+      "http://localhost:3000", 
       "https://docuploadv1.netlify.app",
-      "http://localhost:5173",
     ],
     credentials: true,
   })
