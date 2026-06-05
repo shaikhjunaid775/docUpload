@@ -9,6 +9,7 @@ import {
   IconSearch,
   IconUpload,
 } from "../utils/Icons";
+import config from "../../config";
 
 const AuthContext = createContext(null);
 
@@ -29,25 +30,25 @@ export const AuthProvider = ({ children }) => {
       label: "Dashboard",
       icon: <IconDashboard />,
       roles: ["admin", "manager", "user"],
-      path: "/dashboard"
+      path: "/dashboard",
     },
     {
       id: "upload",
       label: "Upload Document",
       icon: <IconUpload />,
       roles: ["user"],
-      path: "/uploadDocument"
+      path: "/uploadDocument",
     },
     {
       id: "approve",
       label: "Approve Documents",
       icon: <IconApprove />,
       roles: ["admin", "manager"],
-      path: "/approveDocument"
+      path: "/approveDocument",
     },
   ];
 
-  console.log("user: ", user)
+  console.log("user: ", user);
 
   const navItems = allNavItems.filter((item) =>
     item.roles.includes(user?.role),
@@ -62,20 +63,14 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const signin = async () => {
-    console.log("signin")
+    console.log("signin");
     const { email, password } = form;
 
     try {
-      const response = await axios.post(
-        // "http://localhost:3000/api/auth/login",
-        // "http://192.168.1.153:5000/api/auth/login",
-        // "https://docupload-scad.onrender.com/api/auth/login",
-        "https://docupload-production.up.railway.app/api/auth/login",
-        {
-          email,
-          password,
-        },
-      );
+      const response = await axios.post(`${config.API_URL}/api/auth/login`, {
+        email,
+        password,
+      });
 
       const user = response?.data?.user;
 

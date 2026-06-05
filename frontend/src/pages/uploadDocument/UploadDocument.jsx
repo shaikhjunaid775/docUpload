@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IconClose, IconDoc, IconUpload } from "../../utils/Icons";
 import axios from "axios";
+import config from "../../../config";
 
 export const UploadPage = () => {
   const [files, setFiles] = useState([]);
@@ -29,7 +30,7 @@ export const UploadPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/upload/upload",
+        `${config.API_URL}/api/upload/upload`,
         formData,
       );
 
